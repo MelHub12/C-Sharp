@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Auction
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // declare and initialize variables
+            string entryString;
+            double bidNum;
+
+            const double MIN = 10.00;
+            
+            // prompt bid amount
+            Console.Write("Please enter a bid amount for the item:  ");
+            entryString = Console.ReadLine().ToLower();
+            double.TryParse(entryString, out bidNum);  
+
+            BidMethod(bidNum, MIN);
+            Console.ReadLine();
+        }
+
+        // bid method for int
+        private static void BidMethod(int bid, double MIN)
+        {  
+            Console.WriteLine("Bid is an int.");
+            Console.WriteLine("Your bid is: {0:C}", bid);
+            if (bid >= MIN)
+                Console.WriteLine("Your bid is over the minimum {0} bid amount.", MIN);
+            else
+                Console.WriteLine("Your bid is not over the minimum {0} bid amount.", MIN);
+        }
+
+        // bid method for double
+        private static void BidMethod(double bid, double MIN)
+        {  
+            Console.WriteLine("Bid is a double.");
+            Console.WriteLine("Your bid is: {0:C}", bid);
+            if (bid >= MIN)
+                Console.WriteLine("Your bid is over the minimum {0} bid amount.", MIN);
+            else
+                Console.WriteLine("Your bid is not over the minimum {0} bid amount.", MIN);
+        }
+
+        private static void BidMethod(string bid, double MIN)
+        { 
+
+            string amount;
+            int amountInt;
+
+            if (bid.StartsWith("$"))
+                amount = (bid as string).Trim(' ');  
+            if (bid.EndsWith("dollar"))
+                amount = bid.TrimEnd(' ', 'd', 'o', 'l', 'l', 'a', 'r', 's');
+            else
+                amount = bid;
+
+            Int32.TryParse(amount, out amountInt);  
+            Console.WriteLine("Bid is a string.");
+
+            Console.WriteLine("Your bid is: {0:C}", bid);
+            if (amountInt >= MIN)
+                Console.WriteLine("Your bid is over the minimum {0} bid amount.", MIN);
+            else
+                Console.WriteLine("Your bid is not over the minimum {0} bid amount.", MIN);
+        }
+    }
+}
