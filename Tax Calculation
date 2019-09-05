@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace TaxCalculation
+{
+    class Program
+    {
+        static void Main(string[] args)
+        { 
+            // declare and initialize variables
+            double myPrice = 79.95;
+            double myRate = 0.06;
+            TaxCalculation(myPrice, myRate); // calling taxcalculation method
+            TaxCalculation(79.95, 0.06);
+        }
+
+        // tax calculation method
+        public static void TaxCalculation(double salePrice, double taxRate)
+        {
+            double tax;
+            tax = salePrice * taxRate;
+            Console.WriteLine("The tax on {0} at {1} is {2}",
+            salePrice.ToString("C"),
+            taxRate.ToString("P"), tax.ToString("C"));
+        }
+    }
+}
+
