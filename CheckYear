@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+// main method
+namespace CheckYear2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // declaring variable
+            String yearbirthAsString;
+            Int32 yearbirth = 0;
+            Int32 currentage = 2017;
+
+            // display and read output
+            Console.Write("Enter year of birth: ");
+            yearbirthAsString = Console.ReadLine();
+            yearbirth = Convert.ToInt32(yearbirthAsString);
+
+            // compare birth year and display message 
+            if (yearbirth > currentage || yearbirth < 1890)
+                Console.WriteLine("You entered invalid year");
+            else
+                Console.WriteLine("You entered valid year");
+        }
+    }
+}
