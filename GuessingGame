@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+// main method
+namespace GuessingGame
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // declaring variables
+
+           Int32 randomnumber = 0;
+           Int32 min = 0;
+           Int32 max = 0;
+           String randomnumberAsString;
+            
+
+            // display and read output
+            Console.Write("Enter the guess random number: ");
+            randomnumberAsString = Console.ReadLine();
+            randomnumber = Convert.ToInt32(randomnumberAsString);
+
+
+            // generates random number between 1 and 10
+           
+            if (randomnumber > 10)
+                Console.WriteLine("Guess number was too high");
+              else if (randomnumber <= 0)
+                 Console.WriteLine("Guess number was too low");
+                 else
+                    Console.WriteLine("Guess number was correct");
+
+
+        }
+    }
+}
