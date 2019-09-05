@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConvertInchesToCm
+{
+    class Program
+    {
+        static void Main() // main method
+        {
+
+            Console.Write("Input a inch value: "); // prompt input
+
+            double input = double.Parse(Console.ReadLine());
+
+            double total = Total(input); // calling total method
+
+            Console.WriteLine(input + " inch = " + total + " cm");
+            Console.ReadKey();
+
+        }    
+
+        static double Total(double input) // total method
+        {
+             return input * 2.54;
+        }
+        
+    }
+}
