@@ -1,0 +1,158 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace MarshallsRevenue
+{
+    class Program
+    {
+        private static int i;
+
+        static void Main(string[] args)
+        {
+            // declare variable
+
+            Int32 inNum = 0;
+            Int32 exNum = 0;
+            //Int32 totalMural = 0;
+            //Int32 totalMural = (inNum + exNum); 
+
+            // Prompt new customer number this year and last year
+            Console.Write("Enter number of interior Murals : ");
+            inNum = Int32.Parse(Console.ReadLine());
+
+            while (inNum >= 30)
+            {
+                // Prompt new customer number this year and last year
+                Console.Write("Enter number of interior Murals : ");
+                inNum = Int32.Parse(Console.ReadLine());
+            }
+
+            Console.Write("Enter number of exterior Murals : ");
+            Int32.TryParse(Console.ReadLine(), out exNum); // using TryParse
+
+            while (exNum >= 30)
+            {
+                Console.Write("Enter number of exterior Murals : ");
+                Int32.TryParse(Console.ReadLine(), out exNum); // using TryParse
+            }
+
+            if (inNum > 30)
+
+                // loop number of customer
+                if (inNum > 30)
+                    Console.WriteLine("Invalid number!Please enter valid number 0 to 30. ");
+                else
+                    Console.WriteLine(" Enter valid number 0 to 30. ");
+
+
+            Console.WriteLine();
+
+            string[] custNames;
+
+
+            Int32 tNum = 0;
+            tNum = inNum + exNum;
+
+            char[] cusTypeCodes;
+            string[] Types = { "Interior", "Exterior" };
+            char[] validTypeCodes = { 'I', 'E' };
+
+            char[] cusStyleCodes;
+            string[] Styles = { "Landscape", "Seascape", "Abstract", "Childrens", "Other" };
+            char[] validStyleCodes = { 'L', 'S', 'A', 'C', 'O' };
+
+
+
+            string cusNameEntered; // user entry
+            char typeCodeEntered; // user entry
+            char styleCodeEntered; // user entry 
+            int[] total = new int[Types.Length];
+            bool validCode = false;
+            int counter = 0;
+
+            custNames = new string[tNum]; // set array size
+            cusTypeCodes = new char[tNum]; // set array size
+            cusStyleCodes = new char[tNum];
+
+            //put customer in array
+            while (counter < tNum) // loop for all customer
+            {
+                // get customer name and put in array
+                Console.Write("Enter customer name: ");
+                cusNameEntered = (Console.ReadLine());
+                counter += 1; // customer number
+                validCode = false;
+
+                //place in correct array element
+                custNames[counter - 1] = cusNameEntered;
+
+                //get customer type code
+                while (validCode == false)
+                {
+
+                    counter -= 1;
+                    Console.Write("Enter Type Code (I -Interior, E -Exterior):  ");
+                    typeCodeEntered = Char.Parse(Console.ReadLine().ToUpper());
+                    for (int x = 0; x < validTypeCodes.Length && !validCode; ++x)
+
+                        if (typeCodeEntered == validTypeCodes[x]) // type code valid
+                        {
+                            validCode = true; // true if match found
+                            cusTypeCodes[counter] = typeCodeEntered; // put customer code in array
+                            x = validTypeCodes.Length; // breaks out of loop
+                        }
+                    if (validCode == false) // false if no match found 
+                    {
+                        Console.WriteLine("Invalid Type Code.");
+                    }
+                }
+
+
+                counter += 1;
+                validCode = false;
+
+                while (validCode == false)
+                {
+
+                    counter -= 1;
+                    Console.Write("Enter Style Code (Enter Style Code (L -Landscape, S -Seascape, A -Abstract, C -Children, O -Other): ");
+                    styleCodeEntered = Char.Parse(Console.ReadLine().ToUpper());
+                    for (int x = 0; (x < validStyleCodes.Length - 1) && !validCode; ++x)
+
+                        if (styleCodeEntered == validStyleCodes[x]) // style code valid
+                        {
+                            validCode = true; // true if match found
+                            cusStyleCodes[counter] = styleCodeEntered; // put customer code in array
+                            x = validStyleCodes.Length; // breaks out of loop
+                        }
+                    if (validCode == false) // false if no match found 
+                    {
+                        Console.WriteLine("Invalid Type Code.");
+
+                    }
+                }
+
+                counter += 1;
+                validCode = false;
+
+            }
+
+            for (int i = 0; i < tNum; i++)
+            {
+                // Display name, type and style
+                Console.WriteLine("{0}, {1}, {2}", custNames[i], cusTypeCodes[i], cusStyleCodes[i]);
+
+            }
+
+            return;
+
+        }
+
+    }
+}
+
+  
