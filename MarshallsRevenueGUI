@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MarshallsRevenue
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // initialize variables
+            Int32 interior, exterior, interiorrev, exteriorrev, totalrev;
+            Int32 month = 0;
+
+            // Enter number of month
+
+            Console.Write("Enter number of month: ");
+            month = Int32.Parse(Console.ReadLine());
+
+            // Enter number of interior murals
+            Console.Write("Number of interior murals to be painted next month: ");
+            interior = Int32.Parse(Console.ReadLine());
+
+            //Prompt the exterior input
+            Console.Write("Number of exterior murals to be painted next month: ");
+            exterior = Int32.Parse(Console.ReadLine());
+
+            if (month == 12 || month == 1 || month == 2)
+                exterior = 0;
+            else
+
+
+            // Compute and making decisions 
+            Console.WriteLine();
+            if (month == 7 || month == 8)
+                Console.WriteLine("Interior cost $450 each.");
+            else
+                Console.WriteLine("Interior murals cost $500 each.");
+                       
+                Console.WriteLine("Exterior murals cost $750 each.");
+                Console.WriteLine();
+
+            if (month == 7 || month == 8)
+                interiorrev = interior * 450;
+            else
+                interiorrev = interior * 500;
+            Console.WriteLine("Expected revenue for interior: {0}", interiorrev.ToString("C2"));
+
+            exteriorrev = exterior * 750;
+            Console.WriteLine("Expected revenue for exterior: {0}", exteriorrev.ToString("C2"));
+            Console.WriteLine();
+
+            // Display the total expected revenue for both murals 
+            totalrev = interiorrev + exteriorrev;
+            Console.WriteLine("Total expected revenue for both murals {0}", totalrev.ToString("C2"));
+            Console.WriteLine();
+
+            if (interiorrev > exteriorrev)
+                Console.WriteLine("Interior is more than exterior schedule");
+
+            else
+                Console.WriteLine("Exterior is more than interior schedule");
+
+            Console.ReadLine();
+
+        }
+    }
+}
