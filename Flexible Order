@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace FlexibleOrder
+{
+    class Program
+    {
+        static void Main()
+        {
+            //declare and initialize variables
+            string inputstring;
+            int itemNum;
+
+            //prompt description item
+            Console.WriteLine("Enter description item would like to order (plate,cup, bowl, vase, planter, statue): ");
+            inputstring = Console.ReadLine();
+           
+            if (int.TryParse(inputstring, out itemNum))
+            {
+                GetDetails(itemNum);
+            }
+            else
+            {
+                GetDetails(inputstring);
+            }
+
+        }
+
+        // display details of item number and cost by using description
+        private static void GetDetails(string itemNum)
+        {
+            if (itemNum == "plate")
+                Console.WriteLine("Item number 112 priced at $16.95.");
+            else if (itemNum == "cup")
+                Console.WriteLine("Item number 123 priced at $10.95.");
+            else if (itemNum == "bowl")
+                Console.WriteLine("Item number 134 priced at $14.25.");
+            else if (itemNum == "vase")
+                Console.WriteLine("Item number 213 priced at $21.95.");
+            else if (itemNum == "planter")
+                Console.WriteLine("Item number 224 priced at $45.99.");
+            else if (itemNum == "statue")
+                Console.WriteLine("Item number 235 priced at $89.99.");
+
+            else
+                Console.WriteLine("Item not found.");
+        }
+
+        // display details of item number and cost by using item number
+        private static void GetDetails(int itemNum)
+        {
+            if (itemNum == 112)
+                Console.WriteLine("The plate priced is $16.95.");
+            else if (itemNum == 123)
+                Console.WriteLine("The cup priced is $10.95.");
+            else if (itemNum == 134)
+                Console.WriteLine("The bowl priced is $14.25.");
+            else if (itemNum == 213)
+                Console.WriteLine("The vase priced is $21.95.");
+            else if (itemNum == 224)
+                Console.WriteLine("The planter priced  $45.99.");
+            else if (itemNum == 235)
+                Console.WriteLine("The statue priced is $89.99.");
+            else
+                Console.WriteLine("Item not found.");
+        }
+    }
+}
+
+
+
