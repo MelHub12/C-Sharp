@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace RockPaperScissors
+{
+    class RockPaperScissors
+    {
+        static void Main(string[] args)
+        {
+            int user;
+            string input;
+
+            // Generate a random int 'r', 'p', or 's'
+            Console.WriteLine("Do you choose rock, paper or scissor");
+            
+            //Prompt the user to enter a character 'r', 'p', or 's'
+            Console.WriteLine("rock(r), paper(p), scissor(s): ");
+            input = Console.ReadLine();
+            user = Convert.ToChar(input);
+            int computer = 0;  
+           // int user = 0;
+
+            Random r = new Random();
+            computer = r.Next(4);
+
+           
+            Console.Write ("The computer is ");
+
+            switch (computer)
+            {
+                case 0: Console.WriteLine ("rock."); break;
+                case 1: Console.WriteLine ("paper."); break;
+                case 2: Console.WriteLine ("scissor."); break;
+            }
+
+            Console.Write ("You are ");
+
+            switch (user)
+            {
+                case 'r': Console.WriteLine("rock."); break;
+                case 'p': Console.WriteLine("paper."); break;
+                case 's': Console.WriteLine("scissor."); break;
+            }
+
+
+            // Compare and display result
+            if (computer == user)
+                Console.WriteLine ("It is a draw!");
+            else
+            {
+                Boolean win = (user == 0 && computer == 2) || (user == 1 && computer == 0) || (user == 2 && computer == 1);
+                if (win)
+                    Console.WriteLine ("You won!");
+                else
+                    Console.WriteLine ("You lose!");
+
+            }
+            
+        }
+    }
+}
