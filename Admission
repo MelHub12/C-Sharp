@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Admission
+{
+    class Program
+    {
+        static void Main(string[] args)  // main method
+        {
+            // declaring variables
+            double gradepoint = 0.0;
+            String gradepointAsString;
+            String adscoreAsString;
+            double adscore = 0.0;
+
+            // Enter numeric grade
+            Console.WriteLine("College's Admission Office:");
+            Console.WriteLine();
+            Console.Write("Enter numeric high shool grade: ");
+            gradepointAsString = Console.ReadLine();
+            gradepoint = double.Parse(gradepointAsString);
+            Console.WriteLine();
+
+            // Enter admission score
+            Console.Write("Enter admission test Score: ");
+            adscoreAsString = Console.ReadLine();
+            adscore = double.Parse(adscoreAsString);
+
+            // decisions requirements
+            if (gradepoint >= 3.0 && adscore >= 60)
+                Console.WriteLine("Accept");
+              else if (gradepoint <= 3.0 && adscore >= 80)
+                   Console.WriteLine("Accept"); 
+                else          
+                   Console.WriteLine("Reject");
+
+        }
+    }  
+}
