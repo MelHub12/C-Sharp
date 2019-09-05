@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Hurricane
+{
+    class Program
+    {
+        static void Main(string[] args) // main method
+        {
+
+            // declaring variables
+            String windSpeedAsString;
+            Int32 windSpeed = 0;
+
+            // displaly adn read output
+            Console.Write("Enter Wind Speed: ");
+            windSpeedAsString = Console.ReadLine();
+            windSpeed = Convert.ToInt32(windSpeedAsString);
+
+            // Compare intelligence windSpeed
+            if (windSpeed >= 157)
+                Console.WriteLine("Hurricane C5");
+            else if (windSpeed >= 130)
+                Console.WriteLine("Minimun C4");
+            else if (windSpeed >= 111)
+                Console.WriteLine("Minimum C3");
+            else if (windSpeed >= 96)
+                Console.WriteLine("Minimun C2");
+            else if (windSpeed >= 74)
+                Console.WriteLine("Minimum C1");
+            else
+                Console.WriteLine("Not Hurricane");
+
+        }
+    }
+}
