@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Twitter
+{
+    class Program
+    {
+        static void Main(string[] args) // main method
+        {
+            // Enter messages
+
+            {
+                Console.WriteLine("Enter your message");
+                Console.WriteLine();
+                string message = Console.ReadLine();
+                Console.WriteLine();
+
+                // decisions how long the messages
+                if (message.Length <= 140)
+                {
+                    Console.WriteLine("Yes, it's short enough for Twitter");
+                }
+                else
+                {
+                    Console.WriteLine("Sorry, it's too long for Twitter");
+                }
+
+                //Console.WriteLine();
+            }
+        }
+    }
+}
